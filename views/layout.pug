@@ -1,0 +1,21 @@
+doctype html
+
+html(lang="en-US")
+  head
+    title My Contacts
+    meta(charset="UTF-8")
+    link(rel="stylesheet" href="/stylesheets/application.css")
+    
+  body
+    header
+      h1 My Contacts Manager
+      
+    - let messageTypes = Object.keys(flash || {});
+    if messgeTypes.length > 0
+      ul
+        each messageType in messageTypes
+          each message in flash[messageType]
+            li.flash(class=meassageType)= message
+
+    main
+      block content
